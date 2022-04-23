@@ -1,7 +1,7 @@
 ![Capture 2](https://user-images.githubusercontent.com/102500744/164885711-1f6460f5-f563-4cae-bb50-2a2420ca097d.PNG)
 
 
-Case Study Questions 
+**CASE STUDY QUESTIONS**
 1. What is the total amount each customer spent at the restaurant?
 2. How many days has each customer visited the restaurant?
 3. What was the first item from the menu purchased by each customer?
