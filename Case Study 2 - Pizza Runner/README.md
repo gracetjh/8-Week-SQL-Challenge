@@ -1,5 +1,7 @@
 ![Capture 3](https://user-images.githubusercontent.com/102500744/164885925-8413d521-bca0-4ef7-a090-883a3f7308c2.PNG)
 
+**CASE STUDY QUESTIONS**
+
 **A. Pizza Metrics**
 1. How many pizzas were ordered?
 2. How many unique customer orders were made?
