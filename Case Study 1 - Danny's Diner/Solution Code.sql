@@ -37,11 +37,11 @@ WITH ordered_sales AS (
 	JOIN menu
     ON sales.product_id = menu.product_id
 )
-SELECT
-  customer_id,
-  product_name
+SELECT DISTINCT	
+	customer_id, 
+	product_name
 FROM ordered_sales
-WHERE order_rank = 1;
+WHERE order_rank = 1
 
 
 -- Question 4
