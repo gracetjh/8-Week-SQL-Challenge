@@ -17,8 +17,8 @@
 -- Question 1
 SELECT sales.customer_id, SUM(menu.price) AS total_sales
 FROM sales
-	join menu
-	on sales.product_id = menu.product_id
+	JOIN menu
+	ON sales.product_id = menu.product_id
 GROUP BY sales.customer_id;
 
 
@@ -49,8 +49,8 @@ SELECT
   TOP (1) menu.product_name,
   COUNT(sales.product_id) AS total_purchases
 FROM sales
-JOIN menu
-  ON sales.product_id = menu.product_id
+	JOIN menu
+	ON sales.product_id = menu.product_id
 GROUP BY product_name
 ORDER BY total_purchases DESC
 
@@ -61,7 +61,7 @@ WITH customer_cte AS (
     sales.customer_id, menu.product_name, count(sales.product_id) as quantity,
     RANK() OVER (PARTITION BY sales.customer_id ORDER BY count(sales.product_id) desc) AS order_rank
   FROM sales
-	LEFT JOIN menu
+	JOIN menu
     ON sales.product_id = menu.product_id
 GROUP BY sales.customer_id, menu.product_name
 )
@@ -125,8 +125,8 @@ SUM (CASE WHEN
 	ELSE 10 * menu.price
 END) AS points
 FROM sales
-	join menu
-	on sales.product_id = menu.product_id
+	JOIN menu
+	ON sales.product_id = menu.product_id
 GROUP BY sales.customer_id;
 
 
@@ -138,9 +138,9 @@ SUM (CASE
 	ELSE 10 * menu.price
 END) AS points
 FROM sales
-	join menu
-	on sales.product_id = menu.product_id
-	join members
+	JOIN menu
+	ON sales.product_id = menu.product_id
+	JOIN members
 	ON sales.customer_id = members.customer_id
 WHERE sales.order_date between '2021-01-01' and '2021-01-31'
 GROUP BY sales.customer_id;
