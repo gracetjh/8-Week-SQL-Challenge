@@ -56,11 +56,10 @@ ORDER BY total_purchases DESC
 
 
 -- Question 5
-WITH ordered_sales AS (
+WITH customer_cte AS (
   SELECT
     sales.customer_id, menu.product_name, count(sales.product_id) as quantity,
     RANK() OVER (PARTITION BY sales.customer_id ORDER BY count(sales.product_id) desc) AS order_rank
-   -- menu.product_name
   FROM sales
 	LEFT JOIN menu
     ON sales.product_id = menu.product_id
@@ -70,7 +69,7 @@ SELECT
   customer_id,
   product_name,
   quantity
-FROM ordered_sales
+FROM customer_cte
 WHERE order_rank = 1;
 
 
