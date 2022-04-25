@@ -33,7 +33,6 @@ WITH ordered_sales AS (
   SELECT
     sales.customer_id, menu.product_name, sales.order_date,
     RANK() OVER (PARTITION BY sales.customer_id ORDER BY sales.order_date) AS order_rank
-   -- menu.product_name
   FROM sales
 	JOIN menu
     ON sales.product_id = menu.product_id
@@ -82,7 +81,7 @@ WITH member_sales AS (
     RANK() OVER (PARTITION BY sales.customer_id ORDER BY sales.order_date) AS order_rank
   FROM sales
 	JOIN menu
-    ON sales.product_id = menu.product_id
+    	ON sales.product_id = menu.product_id
 	JOIN members
 	ON sales.customer_id = members.customer_id
 	WHERE sales.order_date >=members.join_date
@@ -99,7 +98,7 @@ WITH member_sales AS (
     RANK() OVER (PARTITION BY sales.customer_id ORDER BY sales.order_date desc) AS order_rank
   FROM sales
 	JOIN menu
-    ON sales.product_id = menu.product_id
+    	ON sales.product_id = menu.product_id
 	JOIN members
 	ON sales.customer_id = members.customer_id
 	WHERE sales.order_date <members.join_date
