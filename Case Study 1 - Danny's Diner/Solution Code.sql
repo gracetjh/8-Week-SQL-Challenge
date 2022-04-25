@@ -108,7 +108,7 @@ WHERE order_rank = 1;
 
 
 -- Question 8
-SELECT sales.customer_id, COUNT(DISTINCT sales.product_id) AS unique_menu_items, SUM(menu.price) AS total_spend
+SELECT sales.customer_id, COUNT(sales.product_id) AS total_items, SUM(menu.price) AS total_spend
 FROM sales
 	JOIN menu
 	ON sales.product_id = menu.product_id
